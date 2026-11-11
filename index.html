@@ -3,61 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidade - ROBÔ-COP</title>
+    <title>Política de Privacidade — ROBOCOP 3 - Um novo amigo (ROBÔ-COP)</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 0 20px; }
         h1 { color: #0056b3; border-bottom: 2px solid #eee; padding-bottom: 10px; }
-        h2 { color: #2c3e50; margin-top: 25px; }
+        h2 { color: #2c3e50; margin-top: 28px; font-size: 19px; }
         p, li { font-size: 15px; color: #555; }
+        ul { padding-left: 22px; }
+        li { margin-bottom: 8px; }
+        code { background-color: #f1f5f9; padding: 2px 5px; border-radius: 4px; font-size: 13.5px; color: #0f172a; }
+        a { color: #0056b3; text-decoration: none; }
+        a:hover { text-decoration: underline; }
         .footer { margin-top: 40px; font-size: 13px; color: #888; border-top: 1px solid #eee; padding-top: 15px; }
-        .highlight { background-color: #f8f9fa; border-left: 4px solid #0056b3; padding: 10px 15px; margin: 15px 0; }
+        .highlight { background-color: #f8f9fa; border-left: 4px solid #0056b3; padding: 12px 16px; margin: 18px 0; border-radius: 0 6px 6px 0; }
     </style>
 </head>
 <body>
 
-    <h1>Política de Privacidade — ROBÔ-COP</h1>
-    <p><em>Última atualização: Agosto de 2026</em></p>
+    <h1>Política de Privacidade — ROBOCOP 3 - Um novo amigo</h1>
+    <p><em>Última atualização: Novembro de 2026 (Versão 6.1.4)</em></p>
 
     <div class="highlight">
-        <p><strong>Resumo:</strong> A extensão ROBÔ-COP é uma ferramenta estritamente corporativa de produtividade. Nós não comercializamos dados, não monitoramos navegação pessoal e não compartilhamos nenhuma informação com parceiros comerciais ou redes de publicidade.</p>
+        <p><strong>Resumo:</strong> A extensão <strong>ROBOCOP 3 - Um novo amigo (ROBÔ-COP)</strong> é uma ferramenta estritamente corporativa de produtividade e automação operacional destinada ao Centro de Operações (COP). Nós não comercializamos dados, não monitoramos a navegação pessoal na internet, não executamos códigos remotos externos e não compartilhamos nenhuma informação com terceiros, parceiros comerciais ou redes de publicidade.</p>
     </div>
 
-    <h2>1. Informações que Coletamos e Finalidade</h2>
-    <p>Para fornecer suas funcionalidades de automação e integração de chamados, a extensão processa as seguintes informações:</p>
+    <h2>1. Escopo de Atuação e Domínios Autorizados</h2>
+    <p>A extensão atua exclusivamente dentro dos sistemas corporativos internos autorizados em seu manifesto (<code>manifest.json</code>), não tendo acesso a nenhum outro site visitado pelo usuário:</p>
     <ul>
-        <li><strong>Informações de Autenticação e Sessão:</strong> A extensão acessa cookies de sessão de curta duração do sistema corporativo (SIR - domínio 10.0.196.8) e a matrícula de identificação do operador. Essas informações são utilizadas exclusivamente para autenticar as ações do próprio operador (como consultas e salvamento de observações).</li>
-        <li><strong>Dados de Chamados Operacionais:</strong> Leitura de identificadores de chamados (código de atividade, designação, número de ticket) nas telas do Oracle Field Service (TOA) e SIR, utilizados unicamente para gerar notas de atendimento, relatórios e atalhos de cópia solicitados pelo operador.</li>
-        <li><strong>Preferências do Usuário:</strong> Matrículas configuradas, temas e switches de botões são armazenados localmente no navegador (via <code>chrome.storage</code>) para manter a personalização de uso da ferramenta.</li>
+        <li><strong>Sistema Integrado de Recuperação (SIR — Embratel/Claro):</strong> <code>sir.nt.embratel.com.br</code> e endereços internos de intranet (<code>10.0.196.8</code>, <code>10.13.54.150</code> e <code>10.13.98.10</code>);</li>
+        <li><strong>Oracle Field Service (TOA / OFSC):</strong> <code>clarosa.etadirect.com</code> e <code>clarosa.fs.ocs.oraclecloud.com</code>;</li>
+        <li><strong>Servidor Interno da Operação COP:</strong> <code>10.98.19.146</code>.</li>
     </ul>
 
-    <h2>2. Como os Dados São Utilizados</h2>
+    <h2>2. Informações que Coletamos e Finalidade</h2>
+    <p>Para fornecer suas funcionalidades de automação, filtros operacionais e integração de chamados, a extensão processa estritamente as seguintes informações:</p>
+    <ul>
+        <li><strong>Informações de Identificação Corporativa:</strong> Primeiro nome/assinatura operacional, matrícula no SIR, identificador corporativo (Z-ID) e sigla do setor/departamento (ex.: COP). Utilizadas exclusivamente para compor os carimbos padronizados de atendimento, sincronizar os botões do setor e registrar o status operacional de plantão (<em>Disponível</em>, <em>Em Pausa</em> ou <em>Desligado</em>) junto ao painel interno da supervisão.</li>
+        <li><strong>Informações de Autenticação e Sessão (<code>cookies</code>):</strong> A extensão acessa cookies de sessão de curta duração exclusivamente nos domínios internos do SIR (<code>CFID</code>, <code>CFTOKEN</code> e sessão ColdFusion). Essas informações são utilizadas unicamente para autenticar as ações solicitadas pelo próprio operador (como consulta de histórico, geração de itens, vínculo de notas e encerramento sincronizado entre o TOA e o SIR), evitando múltiplos logins manuais.</li>
+        <li><strong>Dados de Chamados Operacionais:</strong> Leitura de identificadores técnicos do chamado ativo na tela (número de recuperação/bilhete <code>REC</code>, <code>RAL</code> ou <code>TCQ</code>, ano, item, Centro Funcional, código da atividade no Oracle TOA e observações técnicas), utilizados exclusivamente quando o operador aciona os botões auxiliares de automação, carimbos ou abertura de janela dedicada.</li>
+        <li><strong>Área de Transferência (<code>clipboardRead</code> e <code>offscreen</code> — Uso Estritamente Local):</strong> Quando o operador clica manualmente no botão <em>"Colar Resolução"</em> no SIR ou <em>"Puxar Clipboard Agora"</em> no Popup, a extensão lê o texto copiado na área de transferência via documento Offscreen temporário (Manifest V3) unicamente para higienizar emojis e caracteres incompatíveis com a codificação legada ISO-8859-1 (ColdFusion) antes de preencher o campo de observação. O conteúdo da área de transferência <strong>nunca é enviado</strong> para servidores externos.</li>
+        <li><strong>Preferências Locais, Alarmes e Notificações (<code>storage</code>, <code>alarms</code>, <code>notifications</code>, <code>tabs</code> e <code>scripting</code>):</strong> Temas visuais escolhidos, ativação/desativação de botões padrão, controle da janela dedicada do chamado no SIR, comunicados da supervisão e lembretes opcionais de ergonomia/bem-estar (hidratação, postura e regra visual 20-20-20) são gerenciados localmente no navegador via <code>chrome.storage.local</code> e <code>chrome.storage.session</code>.</li>
+    </ul>
+
+    <h2>3. Como os Dados São Utilizados</h2>
     <p>Todas as informações tratadas possuem como finalidade única e exclusiva:</p>
     <ul>
-        <li>Garantir a funcionalidade técnica principal da extensão (integração TOA/SIR);</li>
-        <li>Garantir que as ações executadas no sistema reflitam a identidade do operador autenticado;</li>
-        <li>Evitar ações duplicadas e retrabalho operacional.</li>
+        <li>Viabilizar a funcionalidade técnica principal da extensão (produtividade e integração operacional entre Oracle TOA e SIR);</li>
+        <li>Garantir que as ações e carimbos executados no sistema reflitam com precisão a identidade do operador autenticado;</li>
+        <li>Exibir comunicados operacionais da supervisão e evitar a abertura de janelas duplicadas e retrabalho durante o plantão.</li>
     </ul>
 
-    <h2>3. Compartilhamento e Venda de Dados</h2>
-    <p>Em total conformidade com as Políticas de Desenvolvedor da Chrome Web Store e a LGPD:</p>
+    <h2>4. Declaração de Uso Limitado (Chrome Web Store Limited Use Disclosure)</h2>
+    <p>O uso das informações recebidas das APIs do Google Chrome pela extensão <strong>ROBOCOP 3 - Um novo amigo</strong> cumpre integralmente a <strong>Política de Dados do Usuário da Chrome Web Store (Chrome Web Store User Data Policy)</strong>, incluindo os requisitos de <strong>Uso Limitado (Limited Use)</strong>, bem como a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong>:</p>
     <ul>
-        <li><strong>Não vendemos</strong> nenhuma informação ou dado pessoal;</li>
-        <li><strong>Não transferimos</strong> dados para terceiros, agregadores de dados ou serviços de publicidade;</li>
-        <li><strong>Não utilizamos</strong> dados para análise de perfil de crédito ou propósitos alheios à operação.</li>
+        <li><strong>Não vendemos</strong> nenhuma informação ou dado pessoal ou corporativo a terceiros;</li>
+        <li><strong>Não transferimos</strong> dados para terceiros, corretores de dados (<em>data brokers</em>), plataformas de análise externas ou redes de publicidade;</li>
+        <li><strong>Não utilizamos</strong> dados para publicidade personalizada, retargeting, determinação de capacidade de crédito, concessão de empréstimos ou qualquer finalidade alheia ao propósito único operacional da extensão.</li>
     </ul>
 
-    <h2>4. Armazenamento e Segurança</h2>
-    <p>Os dados de sessão do operador são mantidos temporariamente em ambiente local ou na API interna corporativa, expirando automaticamente junto com o encerramento da sessão de trabalho. Não há armazenamento persistente de credenciais ou senhas.</p>
+    <h2>5. Armazenamento, Segurança e Controle pelo Usuário</h2>
+    <p>Os dados de sessão do operador são mantidos temporariamente em ambiente local ou na API interna corporativa da operação (Intranet/VPN), expirando automaticamente com o encerramento da sessão de trabalho. Não há coleta ou armazenamento de senhas.</p>
+    <p>A extensão é 100% aderente ao <strong>Manifest V3</strong>: todo o código executável reside dentro do pacote oficial publicado na Chrome Web Store, sem uso de código hospedado remotamente.</p>
+    <p>O operador pode revisar ou alterar seus dados de perfil, temas e botões a qualquer momento diretamente no menu de configurações da extensão, ou remover integralmente todos os dados locais desinstalando a extensão do navegador.</p>
 
-    <h2>5. Contato dos Desenvolvedores</h2>
-    <p>Para dúvidas sobre esta política de privacidade ou sobre o funcionamento da ferramenta, os operadores podem entrar em contato com os desenvolvedores responsáveis:</p>
+    <h2>6. Contato dos Desenvolvedores</h2>
+    <p>Para dúvidas sobre esta Política de Privacidade ou sobre o funcionamento da ferramenta, os operadores podem entrar em contato com os desenvolvedores responsáveis no Centro de Operações (COP):</p>
     <ul>
         <li><strong>Desenvolvimento:</strong> Marlon Fernandes / Rafael Nakajune</li>
-        <li><strong>Canal de Suporte e Feedback:</strong> Formulário interno de avaliação no menu da extensão.</li>
+        <li><strong>Canal de Suporte e Feedback:</strong> <a href="https://forms.office.com/r/BMf9Z7fCct" target="_blank" rel="noopener noreferrer">Formulário Oficial de Avaliação e Suporte da Extensão</a></li>
     </ul>
 
     <div class="footer">
-        <p>© 2026 ROBÔ-COP. Todos os direitos reservados. Uso exclusivo corporativo.</p>
+        <p>© 2026 ROBOCOP 3 - Um novo amigo (ROBÔ-COP). Todos os direitos reservados. Uso exclusivo corporativo.</p>
     </div>
 
 </body>
