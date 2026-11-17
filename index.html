@@ -30,16 +30,16 @@
     <h2>1. Escopo de Atuação e Domínios Autorizados</h2>
     <p>A extensão atua exclusivamente dentro dos sistemas corporativos internos autorizados em seu manifesto (<code>manifest.json</code>), não tendo acesso a nenhum outro site visitado pelo usuário:</p>
     <ul>
-        <li><strong>Sistema Integrado de Recuperação (SIR — Embratel/Claro):</strong> <code>sir.nt.embratel.com.br</code> e endereços internos de intranet (<code>10.0.196.8</code>, <code>10.13.54.150</code> e <code>10.13.98.10</code>);</li>
-        <li><strong>Oracle Field Service (TOA / OFSC):</strong> <code>clarosa.etadirect.com</code> e <code>clarosa.fs.ocs.oraclecloud.com</code>;</li>
-        <li><strong>Servidor Interno da Operação COP:</strong> <code>10.98.19.146</code>.</li>
+        <li><strong>Sistema Integrado de Recuperação (SIR — Embratel/Claro):</strong> e endereços internos de intranet (e <code>10.13.98.10</code>);</li>
+        <li><strong>Oracle Field Service (TOA / OFSC):</strong>;</li>
+        <li><strong>Servidor Interno da Operação COP:</strong>.</li>
     </ul>
 
     <h2>2. Informações que Coletamos e Finalidade</h2>
     <p>Para fornecer suas funcionalidades de automação, filtros operacionais e integração de chamados, a extensão processa estritamente as seguintes informações:</p>
     <ul>
-        <li><strong>Informações de Identificação Corporativa:</strong> Primeiro nome/assinatura operacional, matrícula no SIR, identificador corporativo (Z-ID) e sigla do setor/departamento (ex.: COP). Utilizadas exclusivamente para compor os carimbos padronizados de atendimento, sincronizar os botões do setor e registrar o status operacional de plantão (<em>Disponível</em>, <em>Em Pausa</em> ou <em>Desligado</em>) junto ao painel interno da supervisão.</li>
-        <li><strong>Informações de Autenticação e Sessão (<code>cookies</code>):</strong> A extensão acessa cookies de sessão de curta duração exclusivamente nos domínios internos do SIR (<code>CFID</code>, <code>CFTOKEN</code> e sessão ColdFusion). Essas informações são utilizadas unicamente para autenticar as ações solicitadas pelo próprio operador (como consulta de histórico, geração de itens, vínculo de notas e encerramento sincronizado entre o TOA e o SIR), evitando múltiplos logins manuais.</li>
+        <li><strong>Informações de Identificação Corporativa:</strong> junto ao painel interno da supervisão.</li>
+        <li><strong>Informações de Autenticação e Sessão (<code>cookies</code>):</strong> A extensão acessa cookies de sessão de curta duração exclusivamente nos domínios internos do SIR. Essas informações são utilizadas unicamente para autenticar as ações solicitadas pelo próprio operador (como consulta de histórico, geração de itens, vínculo de notas e encerramento sincronizado entre o TOA e o SIR), evitando múltiplos logins manuais.</li>
         <li><strong>Dados de Chamados Operacionais:</strong> Leitura de identificadores técnicos do chamado ativo na tela (número de recuperação/bilhete <code>REC</code>, <code>RAL</code> ou <code>TCQ</code>, ano, item, Centro Funcional, código da atividade no Oracle TOA e observações técnicas), utilizados exclusivamente quando o operador aciona os botões auxiliares de automação, carimbos ou abertura de janela dedicada.</li>
         <li><strong>Área de Transferência (<code>clipboardRead</code> e <code>offscreen</code> — Uso Estritamente Local):</strong> Quando o operador clica manualmente no botão <em>"Colar Resolução"</em> no SIR ou <em>"Puxar Clipboard Agora"</em> no Popup, a extensão lê o texto copiado na área de transferência via documento Offscreen temporário (Manifest V3) unicamente para higienizar emojis e caracteres incompatíveis com a codificação legada ISO-8859-1 (ColdFusion) antes de preencher o campo de observação. O conteúdo da área de transferência <strong>nunca é enviado</strong> para servidores externos.</li>
         <li><strong>Preferências Locais, Alarmes e Notificações (<code>storage</code>, <code>alarms</code>, <code>notifications</code>, <code>tabs</code> e <code>scripting</code>):</strong> Temas visuais escolhidos, ativação/desativação de botões padrão, controle da janela dedicada do chamado no SIR, comunicados da supervisão e lembretes opcionais de ergonomia/bem-estar (hidratação, postura e regra visual 20-20-20) são gerenciados localmente no navegador via <code>chrome.storage.local</code> e <code>chrome.storage.session</code>.</li>
@@ -70,8 +70,7 @@
     <p>Para dúvidas sobre esta Política de Privacidade ou sobre o funcionamento da ferramenta, os operadores podem entrar em contato com os desenvolvedores responsáveis no Centro de Operações (COP):</p>
     <ul>
         <li><strong>Desenvolvimento:</strong> Marlon Fernandes / Rafael Nakajune</li>
-        <li><strong>Canal de Suporte e Feedback:</strong> <a href="https://forms.office.com/r/BMf9Z7fCct" target="_blank" rel="noopener noreferrer">Formulário Oficial de Avaliação e Suporte da Extensão</a></li>
-    </ul>
+        </ul>
 
     <div class="footer">
         <p>© 2026 ROBOCOP 3 - Um novo amigo (ROBÔ-COP). Todos os direitos reservados. Uso exclusivo corporativo.</p>
